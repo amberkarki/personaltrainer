@@ -9,7 +9,7 @@ import Trainings from './Trainings';
 import Charts from './Charts';
 import Traininginfo from './Traininginfo';
 
-const useStyles = makeStyles((theme) => ({
+const Formating = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export default function Card() {
-  const classes = useStyles();
+  const classes = Formating();
 
   return (
     <div className={classes.root}>

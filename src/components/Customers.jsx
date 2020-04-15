@@ -17,19 +17,18 @@ import {CSVLink} from 'react-csv';
 
  export default function Customers() {
 
-  const [cars, setCars] = useState([]);
-  const [count, setCount]= useState(1);
+  const [customers, setCustomers] = useState([]);
   const [open, setOpen] = useState(false);
   //const [msg, setMsg] =useState('');
  
   useEffect(() => {
-    getCars();
+    getCustomers();
   }, [])
  
-  const getCars = () => {
+  const getCustomers = () => {
     fetch ('https://customerrest.herokuapp.com/api/customers')
     .then(response => response.json())
-    .then(data => setCars(data.content))
+    .then(data => setCustomers(data.content))
    
     .catch(err => console.error(err))
   };
@@ -142,7 +141,7 @@ import {CSVLink} from 'react-csv';
     <h3>Customers Infromation</h3>
     
      {/*<CSVLink style={{padding:20}} data={cars}>Download Customers List</CSVLink> */ }        
-      <ReactTable  defaultPageSize={5}  data={cars} columns={column} style={{height:"400px"}} className = "striped-highligh" />
+      <ReactTable  defaultPageSize={5} filterable={true} data={customers} columns={column} style={{height:"400px"}} />
       <Snackbar 
         open={open}
         autoHideDuration={3000}

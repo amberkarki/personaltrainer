@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Customers from './Customers';
 
 
-const useStyles = makeStyles((theme) => ({
+const Formating = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export default function CardCustomers() {
-  const classes = useStyles();
+  const classes = Formating();
 
   return (
     <div className={classes.root}>

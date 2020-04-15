@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 
-const useStyles = makeStyles((theme) => ({
+const Formating = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export default function Footers () {
-  const classes = useStyles();
+  const classes = Formating();
 
   return (
     <div className={classes.root}>
@@ -40,8 +40,8 @@ export default function Footers () {
                               
                                   <p style={{textAlign:'center'}}>  
                                   Study Purpose &copy; Amber karki  | 
-                 <a  href = "https://www.linkedin.com/in/amberkarki/" target="_blank" rel='noreferrer noopener'> Linkind </a>   |   
-                 <a href="https://github.com/amberkarki" target="_blank" rel='noreferrer noopener'>GitHub </a>   |
+                 <a  href = "https://www.linkedin.com/in/amberkarki/" target="_blank" rel='noreferrer noopener'> Linkedin </a>   |   
+                 <a href="https://github.com/amberkarki" target="_blank" rel='noreferrer noopener'> github </a>   |
                  <a href='mailto:amberkarki@gmail.com'> E-mail  |</a></p>
 
                 

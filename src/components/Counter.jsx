@@ -5,10 +5,9 @@ class Counter extends React.Component {
   constructor() {
     super();
     this.state = {
-      customers: 'React',
+      customers: '',
       countstart : 1 ,
-      countend :0,
-      
+    
     };
     
   }

@@ -8,7 +8,7 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 
-const useStyles = makeStyles((theme) => ({
+const Formating = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export default function SearchAppBar() {
-  const classes = useStyles();
+  const classes = Formating();
 
   return (
     <div className={classes.root}>
