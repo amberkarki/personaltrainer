@@ -16,7 +16,7 @@ import CustomersTraining from './components/CustomersTraining';
 
 
 function App() {
-const []
+
 
 
   return (
