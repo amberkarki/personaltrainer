@@ -27,14 +27,16 @@
 }
 
 .App-header {
-   min-height: 10vh;
+   min-height: 43vh;
   display: flex;
-  margin-left: 10px;
+  background-image: url('./assests/tr.PNG');
+  background-repeat: no-repeat;
   flex-direction: column;
   font-size: calc(6px + 4vmin);
   color:#ECEFF1;
   text-align: left;
   text-decoration-color: coral;
+  background-position: center;
   
     
 }

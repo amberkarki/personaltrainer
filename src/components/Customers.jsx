@@ -4,26 +4,38 @@ import { makeStyles } from '@material-ui/core/styles';
 import 'react-table-v6/react-table.css'
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Icon from '@material-ui/core/Icon';
 import Snackbar from '@material-ui/core/Snackbar';
 import {CSVLink} from 'react-csv';
-//import Icon from '@material-ui/core';
+import EditCustomers from './EditCustomers';
+import AddCustomers from './AddCustomers';
+import AddTraining from './AddTraining';
 
 
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(5),
+      
+      
+    },
+  },
+}));
 
-//import Addcar from './Addcar';
-//import Editcar from'./Editcar';
 
- export default function Customers() {
+ export default function Customers(props) {
+  const classes = useStyles();
 
   const [customers, setCustomers] = useState([]);
   const [open, setOpen] = useState(false);
-  //const [msg, setMsg] =useState('');
+  const [msg, setMsg] =useState('');
+
  
   useEffect(() => {
     getCustomers();
   }, [])
+
+
  
   const getCustomers = () => {
     fetch ('https://customerrest.herokuapp.com/api/customers')
@@ -32,80 +44,101 @@ import {CSVLink} from 'react-csv';
    
     .catch(err => console.error(err))
   };
+
  
   
   const handleClose = () => {
     setOpen(false);
   }
 
+
+
+  const deleteCustomer = (link) => {
+      if (window.confirm('Are you sure? "You  Really want to Delete !!!')) {
+        fetch(link, {method: 'DELETE'})
+        .then(_ => getCustomers())
+        .then(_ => {
+          setMsg(' Confirmation ! "Successfully Customer Deleted" ')
+          setOpen(true)})
+        .catch(err => console.error(err))
+      }
+  }
+
+ 
+  const saveCustomers = (customer)=>{
+          fetch ('https://customerrest.herokuapp.com/api/customers', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            
+            },
+            body: JSON.stringify(customer)
+          })
+          .then(_ =>getCustomers())
+          .then(_ =>{setMsg("New Customer Added ");
+          setOpen(true);
+        })
+          .catch(err => console.error(err))
+
+  };
+
   
-  const columns = [
+  const updateCustomers =(link, customer) => {
+    console.log(link)
+    fetch(link, 
+      {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      
+      },
+      body: JSON.stringify(customer)
+    })
+    .then(_=> getCustomers())
+    .then(_ =>{
+      setMsg('Customer information is  Updated')
+      setOpen(true)
+    })
+    .catch(err => console.error(err))
    
 
-    {
-      Header: 'First Name',
-      accessor: 'firstname'
-    },
-    {
-      Header: 'Last Name',
-      accessor: 'lastname'
-    },
-    {
-      Header: 'Street Address',
-      accessor: 'streetaddress'
-    },
-    
-    {
-      Header: 'City',
-      accessor: 'city'
-    },
-    {
-      Header: 'Email',
-      accessor: 'email'
-    },
-    
-      {
-        Header: "Date",
-        accessor: "date",
-      },
-      {
-        Header: "Duration",
-        accessor: "duration",
+  };
 
-        Cell: row => (
-          <div
-            style={{
-              width: '100%',
-              height: '100%',
-              backgroundColor: 'Yello',
-              borderRadius: '2px'
-            }}
-          >
-            <div
-              style={{
-                width: `${row.value}%`,
-                height: '100%',
-                backgroundColor: row.value > 60 && row.value < 100 ? 'green'
-                  : row.value > 33 && row.value < 61 ? 'grey'
-                    : row.value > 100 ? 'red'
-                      : '#ff2e00',
-                borderRadius: '2px',
-                transition: 'all .2s ease-out'
-              }}
-            ><div style={{ fontSize: "25px" }}>{row.value}</div></div>
-          </div>
-        )
-      },
 
-      {
-        Header: "Activity",
-        accessor: "activity",
+  const saveTraining = (training)=>{
+    fetch ('https://customerrest.herokuapp.com/api/trainings', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      
       },
+      body: JSON.stringify(training)
+    })
+    .then(_ =>{setMsg("New Traning  Added ");
+    setOpen(true);
+  })
+    .catch(err => console.error(err))
 
-  ]
+  };
+
+
+  
   const column = [
-   
-
+    {
+      Header:"id",
+      accessor:"links[0].href",
+      show:false,
+      
+    },
+    {
+      filterable:false,
+      sortable:false,
+      width:148,
+      accessor: 'links[0].href',
+      Cell: ({value, row}) => <AddTraining saveTraining={saveTraining} customer = {row} link={value} useStyles={useStyles} />,
+      
+    },
+    
     {
       Header: 'First Name',
       accessor: 'firstname'
@@ -118,7 +151,11 @@ import {CSVLink} from 'react-csv';
       Header: 'Street Address',
       accessor: 'streetaddress'
     },
-    
+   
+    {
+      Header: 'Postcode',
+      accessor: 'postcode'
+    },
     {
       Header: 'City',
       accessor: 'city'
@@ -133,23 +170,51 @@ import {CSVLink} from 'react-csv';
         Header: "phone",
         accessor: "phone",
       },
+      {
+        filterable:false,
+        sortable:false,
+        width:115,
+        accessor: 'links[0].href',
+        Cell: row => <EditCustomers updateCustomers={updateCustomers} customers = {row.original} useStyles={useStyles} />,
+        
+      },
+       
+      {
+      filterable:false,
+      sortable:false,
+      width:115,
+      accessor: 'links[0].href',
+      Cell: row => (<Button size="medium" className ={classes.button} startIcon={<DeleteIcon />} 
+      color="secondary" variant="contained"  onClick={() => deleteCustomer(row.original.links[0].href)}>Delete</Button>),
+      
+    },
      
   ]
  
   return(
     <div className="container"><br/>
-    <h3>Customers Infromation</h3>
+    <div className={classes.root}>
+     
+     <AddCustomers saveCustomers = {saveCustomers} />
     
-     {/*<CSVLink style={{padding:20}} data={cars}>Download Customers List</CSVLink> */ }        
-      <ReactTable  defaultPageSize={5} filterable={true} data={customers} columns={column} style={{height:"400px"}} />
+     </div >
+     <p style={{backgroundColor:'lightsilver'}}> <h2>Customers List</h2> <CSVLink style={{padding:10}} data={customers}>Download Customers List</CSVLink>
+     
+     
+      </p>
+    
+           
+      <ReactTable  defaultPageSize={5} filterable={true} data={customers} columns={column} style={{height:"400px",}} />
       <Snackbar 
-        open={open}
-        autoHideDuration={3000}
-        onClose={handleClose}
-        //message={msg}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left'
+             
+            open={open}
+            autoHideDuration={3000}
+            onClose={handleClose}
+            message={msg}
+            anchorOrigin={{
+            vertical: 'Top',
+            horizontal: 'left',
+            
         }}
       />
     </div>

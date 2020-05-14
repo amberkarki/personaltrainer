@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
     BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
   } from 'recharts';
@@ -10,8 +11,10 @@ export default function Charts() {
   const [training,setTraining]=React.useState([]);
     
   React.useEffect(() => {
+  
       fetchData();
-    }, [])
+    },[setTraining])
+
   
     
   const fetchData =() =>{
