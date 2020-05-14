@@ -197,11 +197,12 @@ const useStyles = makeStyles((theme) => ({
      
      <AddCustomers saveCustomers = {saveCustomers} />
     
-     </div >
-     <p style={{backgroundColor:'lightsilver'}}> <h2>Customers List</h2> <CSVLink style={{padding:10}} data={customers}>Download Customers List</CSVLink>
+     
+     <p style={{backgroundColor:'lightsilver', marginLeft:'100px'}}> <h2>Customers List</h2> <CSVLink style={{padding:5}} data={customers}>Download Customers List</CSVLink>
      
      
       </p>
+      </div >
     
            
       <ReactTable  defaultPageSize={5} filterable={true} data={customers} columns={column} style={{height:"400px",}} />

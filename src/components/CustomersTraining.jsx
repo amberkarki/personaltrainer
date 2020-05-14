@@ -3,9 +3,6 @@ import ReactTable from 'react-table-v6'
 import { makeStyles } from '@material-ui/core/styles';
 import 'react-table-v6/react-table.css'
 import Button from '@material-ui/core/Button';
-import DeleteIcon from '@material-ui/icons/Delete';
-import Icon from '@material-ui/core/Icon';
-import Snackbar from '@material-ui/core/Snackbar';
 import {CSVLink} from 'react-csv';
 import moment from 'moment';
 
@@ -74,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
       {
         Header: "Duration/ Min",
         accessor: "duration",
-        filterable:false,
+        filterable:true,
        
 
           },
@@ -87,9 +84,6 @@ const useStyles = makeStyles((theme) => ({
   ]
 
 
- 
-
- 
   return(
     <div className="container"><br/>
     <div className={classes.root}>

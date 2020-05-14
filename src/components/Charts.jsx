@@ -40,6 +40,7 @@ export default function Charts() {
           <Bar dataKey="duration" fill=" #a366ff" />
           
           
+          
         </BarChart>
           
           
