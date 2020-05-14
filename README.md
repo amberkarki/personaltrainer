@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 
-### `https://personaltrainners.herokuapp.com/`
+### `App URL : https://personaltrainners.herokuapp.com/`
 
 
 ## Available Scripts
