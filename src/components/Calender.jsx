@@ -47,7 +47,7 @@ export default function Calendars() {
 
         <div>
       <p>
-         <h1 style={{textAlign:'center'}}> Training Events Calender </h1>
+         <h1 style={{textAlign:'center'}}> Training Events Calendar </h1>
       </p>
     
         <Calendar

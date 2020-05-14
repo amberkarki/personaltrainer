@@ -47,7 +47,7 @@ export default function SearchAppBar() {
                   </Typography>
 
                   <Typography className={classes.title} variant="h6" noWrap>
-                      <Link className="nav-link" to = "/calender">  |   Calender  |  </Link>
+                      <Link className="nav-link" to = "/calender">  |   Calendar  |  </Link>
                   </Typography>
 
                   <Typography className={classes.title} variant="h6" noWrap>
