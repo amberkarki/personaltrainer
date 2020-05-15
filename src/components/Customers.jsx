@@ -54,11 +54,11 @@ const useStyles = makeStyles((theme) => ({
 
 
   const deleteCustomer = (link) => {
-      if (window.confirm('Are you sure? "You  Really want to Delete !!!')) {
+      if (window.confirm('Are you sure? " You want to Delete !!!')) {
         fetch(link, {method: 'DELETE'})
         .then(_ => getCustomers())
         .then(_ => {
-          setMsg(' Confirmation ! "Successfully Customer Deleted" ')
+          setMsg(' Confirmation ! Customer Deleted')
           setOpen(true)})
         .catch(err => console.error(err))
       }
@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
             body: JSON.stringify(customer)
           })
           .then(_ =>getCustomers())
-          .then(_ =>{setMsg("New Customer Added ");
+          .then(_ =>{setMsg("Confirmation ! New Customer Added ");
           setOpen(true);
         })
           .catch(err => console.error(err))
@@ -96,7 +96,7 @@ const useStyles = makeStyles((theme) => ({
     })
     .then(_=> getCustomers())
     .then(_ =>{
-      setMsg('Customer information is  Updated')
+      setMsg('Confirmation ! Customers information is  Updated')
       setOpen(true)
     })
     .catch(err => console.error(err))
@@ -114,7 +114,7 @@ const useStyles = makeStyles((theme) => ({
       },
       body: JSON.stringify(training)
     })
-    .then(_ =>{setMsg("New Traning  Added ");
+    .then(_ =>{setMsg("New Training  Added ");
     setOpen(true);
   })
     .catch(err => console.error(err))

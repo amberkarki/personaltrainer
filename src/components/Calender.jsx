@@ -54,8 +54,7 @@ export default function Calendars() {
           events={events} // data 
           startAccessor="start"
           endAccessor="end"
-          defaultView="month"
-         
+          defaultView="month"         
           views={{
             month: true,
             week: true,

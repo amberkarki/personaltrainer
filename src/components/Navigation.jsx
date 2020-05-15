@@ -50,9 +50,7 @@ export default function SearchAppBar() {
                       <Link className="nav-link" to = "/calender">  |   Calendar  |  </Link>
                   </Typography>
 
-                  <Typography className={classes.title} variant="h6" noWrap>
-                      <Link className="nav-link" to = "/customers">  |  Signout  |  </Link>
-                  </Typography>
+                  
              </Toolbar>
       </AppBar> <br />
       <Card /> 
