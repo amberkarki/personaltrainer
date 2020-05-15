@@ -37,7 +37,7 @@ export default function Charts() {
          
               
           <BarChart width={200} height={120} data={z}>
-          <Bar dataKey="duration" fill=" #a366ff" />
+          <Bar dataKey= "duration" fill=" #a366ff" />
           
           
           
