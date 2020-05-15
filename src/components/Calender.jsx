@@ -21,7 +21,7 @@ export default function Calendars() {
   
   const getTrainings = () =>{
     
-    fetch('https://customerrest.herokuapp.com/gettrainings')
+    fetch('https://customerrest.herokuapp.com/gettrainings') // fetching the data 
           .then(response => response.json())
           .then(responseData  =>{
             console.log(responseData)
@@ -30,8 +30,8 @@ export default function Calendars() {
           for(let i=0;i<responseData.length;i++)
           {
             calEvents.push({
-              start:moment.utc(responseData[i].date)._d,
-              end:moment.utc(responseData[i].date).add(responseData[i].duration, 'm')._d,
+              start:moment.utc(responseData[i].date)._d, // date date formating 
+              end:moment.utc(responseData[i].date).add(responseData[i].duration, 'm')._d, // date and time formating 
               title:responseData[i].activity +"/"+ responseData[i].customer.firstname ,
 
             })
@@ -51,7 +51,7 @@ export default function Calendars() {
         <Calendar
         localizer={localizer}
         defaultDate={ new Date()}
-          events={events}
+          events={events} // data 
           startAccessor="start"
           endAccessor="end"
           defaultView="month"

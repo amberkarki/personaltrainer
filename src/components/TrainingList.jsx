@@ -68,12 +68,12 @@ export default function TrainingList (props) {
         };
 
         const deleteTraning = (link) => {
-          link='https://customerrest.herokuapp.com/api/trainings/'+link
+          link='https://customerrest.herokuapp.com/api/trainings/'+link // delete with the link
         
           if (window.confirm('Are you sure? "You  Really want to Delete !!!')) {
             fetch(link, 
             {method: 'DELETE'})
-            .then(_=> getTrainings())
+            .then(_=> getTrainings())// 
             .then(_=> {
               setMsg(' Confirmation ! "Training  Deleted" ')
               setOpen(true)})
@@ -91,7 +91,7 @@ export default function TrainingList (props) {
             filterable:false,
                 Cell: row => {
                 return <div>
-                {moment (row.original.date).format('DD MM YYYY, H:mm')}
+                {moment (row.original.date).format('DD MM YYYY, H:mm')}  
                 </div>;}
           },
           {
