@@ -44,6 +44,10 @@ export default function Footers () {
                  <a  href = "https://www.linkedin.com/in/amberkarki/" target="_blank" rel='noreferrer noopener'> Linkedin </a>   |   
                  <a href="https://github.com/amberkarki" target="_blank" rel='noreferrer noopener'> github </a>   |
                  <a href='mailto:amberkarki@gmail.com'> E-mail </a>|</p>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 30a887bdf55ffd0553a2b80f54bc99916022acc1
 
                 
                     </Typography>

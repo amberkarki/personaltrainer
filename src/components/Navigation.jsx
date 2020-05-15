@@ -50,7 +50,10 @@ export default function SearchAppBar() {
                       <Link className="nav-link" to = "/calender">  |   Calendar  |  </Link>
                   </Typography>
 
+<<<<<<< HEAD
                   
+=======
+>>>>>>> 30a887bdf55ffd0553a2b80f54bc99916022acc1
              </Toolbar>
       </AppBar> <br />
       <Card /> 

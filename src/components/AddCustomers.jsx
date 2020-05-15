@@ -51,7 +51,11 @@ export default function AddCustomers(props) {
   const addCustomers =()=> {
           if(customer.firstname === '' || customer.lastname === '' || customer.streetaddress === '' || customer.postcode === '' || customer.city === '' || customer.email ==='' || customer.phome === '')
           {
+<<<<<<< HEAD
           return (alert("Complete all the required field to Add a new Customer !!! "))
+=======
+          return (alert(" Complete all the requried field to  Add a new Customer !!"))
+>>>>>>> 30a887bdf55ffd0553a2b80f54bc99916022acc1
           }
     else {
           props.saveCustomers(customer);

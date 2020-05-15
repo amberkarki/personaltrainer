@@ -45,7 +45,11 @@ export default function AddTraining(props) {
   const addTraning =()=> {
     if(training.date === '' || training.duration === '' || training.activity === '' )
     {
+<<<<<<< HEAD
      return (alert(" Complete all the required field to Add a new Training !!"))
+=======
+     return (alert(" Complete all the requried field to  Add a new Training !!"))
+>>>>>>> 30a887bdf55ffd0553a2b80f54bc99916022acc1
     }
     else {
       const newTraining = {
