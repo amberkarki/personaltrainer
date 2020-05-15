@@ -39,10 +39,12 @@ export default function Footers () {
                 <Typography gutterBottom variant="subtitle1">
                               
                                   <p style={{textAlign:'center'}}>  
-                                  Study Purpose &copy; Amber karki  | 
+                                  Study Purpose: | Amber karki  | 
+                                  Student:<a  href = "https://www.haaga-helia.fi/fi/etusivu" target="_blank" rel='noreferrer noopener'> Haaga-Helia </a>|  
                  <a  href = "https://www.linkedin.com/in/amberkarki/" target="_blank" rel='noreferrer noopener'> Linkedin </a>   |   
                  <a href="https://github.com/amberkarki" target="_blank" rel='noreferrer noopener'> github </a>   |
-                 <a href='mailto:amberkarki@gmail.com'> E-mail  |</a></p>
+                 <a href='mailto:amberkarki@gmail.com'> E-mail </a>|</p>
+
 
                 
                     </Typography>
